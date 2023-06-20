@@ -1,0 +1,27 @@
+version: 2.1
+
+jobs:
+
+  say-hello:
+   docker:
+   - image: cimg/base:stable
+     auth:
+       username: test
+       password: test
+    steps:
+     - run: echo "My first yaml"
+
+  say-hi:
+    docker:
+     - image: cimg/base:stable
+        auth:
+         username: test
+         password: test
+    steps:
+    - run: echo "My second job"
+  
+workflows:
+  first-and-second:
+    jobs:
+      - say-hello
+      - say-hi
