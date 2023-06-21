@@ -23,8 +23,7 @@ jobs:
 workflows:
   first-and-second:
     jobs:
-      - build_docker_image:
-          context:
-            - practice_context
-            - say-hello
-            - say-hi
+        context:
+          - practice_context
+          - say-hello
+          - say-hi
