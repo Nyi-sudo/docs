@@ -13,6 +13,12 @@ jobs:
       - image: cimg/base:stable
     steps:
       - run: echo "My second job"
+
+  test-variable:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo $PRACTICE_VARIABLE
   
 workflows:
   first-and-second:
