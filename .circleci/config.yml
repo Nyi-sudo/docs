@@ -2,30 +2,14 @@ version: 2.1
 orbs:
   docker: circleci/docker@2.1.4
 jobs:
-  test-context:
-    say-hello:
-      docker:
-        - image: cimg/base:stable
-      steps:
-        - run: echo "My first yaml"
-
-    say-hi:
-      docker:
-        - image: cimg/base:stable
-      steps:
-        - run: echo "My second job"
-
-    test-variable:
-      docker:
-        - image: cimg/base:stable
-      steps:
-        - run: echo $PRACTICE_VARIABLE
-  
+  build:
+    docker:
+      - image:  cimg/base:stable
+    steps:
+      - setup_remote_docker
 workflows:
-  first-and-second:
+  test_context:
     jobs:
-      - test-context:
+      - build:
           context:
             - practice_context
-            - say-hello
-            - say-hi
