@@ -6,7 +6,7 @@ jobs:
     docker:
       - image:  cimg/base:stable
     steps:
-      - setup_remote_docker
+      - run: echo "testing context"
 workflows:
   test_context:
     jobs:
