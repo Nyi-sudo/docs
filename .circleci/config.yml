@@ -1,28 +1,29 @@
 version: 2.1
 
 jobs:
+  test-context:
+   say-hello:
+      docker:
+       - image: cimg/base:stable
+      steps:
+       - run: echo "My first yaml"
 
-  say-hello:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: echo "My first yaml"
+   say-hi:
+      docker:
+       - image: cimg/base:stable
+      steps:
+       - run: echo "My second job"
 
-  say-hi:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: echo "My second job"
-
-  test-variable:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: echo $PRACTICE_VARIABLE
+    test-variable:
+      docker:
+        - image: cimg/base:stable
+      steps:
+        - run: echo $PRACTICE_VARIABLE
   
 workflows:
   first-and-second:
     jobs:
+      test-context:
         context:
           - practice_context
           - say-hello
