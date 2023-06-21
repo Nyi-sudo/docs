@@ -1,5 +1,6 @@
 version: 2.1
-
+orbs:
+  docker: circleci/docker@2.1.4
 jobs:
   test-context:
     say-hello:
@@ -23,7 +24,8 @@ jobs:
 workflows:
   first-and-second:
     jobs:
-      test-context:
-        context:  practice_context
-          - say-hello
-          - say-hi
+      - test-context:
+          context:
+            - practice_context
+            - say-hello
+            - say-hi
