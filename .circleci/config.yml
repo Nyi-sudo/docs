@@ -4,15 +4,15 @@ jobs:
   test-context:
     say-hello:
       docker:
-       - image: cimg/base:stable
+        - image: cimg/base:stable
       steps:
-       - run: echo "My first yaml"
+        - run: echo "My first yaml"
 
     say-hi:
       docker:
-       - image: cimg/base:stable
+        - image: cimg/base:stable
       steps:
-       - run: echo "My second job"
+        - run: echo "My second job"
 
     test-variable:
       docker:
@@ -24,7 +24,6 @@ workflows:
   first-and-second:
     jobs:
       test-context:
-        context:
-          - practice_context
+        context:  practice_context
           - say-hello
           - say-hi
